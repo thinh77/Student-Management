@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="nav-bar">
+                <a href="/">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </header>
+        <main>
+            <div class="logo">
+                <div>
+                    <img th:src="@{/images/LOGO.jpg}" alt="Logo" />
+                </div>
+                <div class="create-account">
+                    <p>Don't have account?</p>
+                    <button class="register">Create Account</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="col-1">
+                    <div class="img-reg">
+                        <img th:src="@{/images/register.jpg}" alt="" />
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="col-2-content">
+                        <h1>Create your account</h1>
+                        <div class="login-form">
+                            <form th:action="@{/register}" th:object="${account}" method="post">
+                                <div class="input-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" th:field="*{email}" id="email"
+                                           placeholder="Enter your email" />
+                                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></span>
+                                </div>
+                                <div class="input-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" th:field="*{username}" id="username"
+                                        placeholder="Enter your username" />
+                                    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;"></span>
+                                </div>
+                                <div class="input-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" th:field="*{password}" id="password"
+                                        placeholder="Enter your password" />
+                                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></span>
+                                </div>
+                                <div class="input-group">
+                                    <label for="role">Role:</label>
+                                    <select th:field="*{role}" id="role" name="role" required>
+                                        <option value="">Select Role</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Trainer">Trainer</option>
+                                    </select>
+                                </div>
+                                <div class="remember-signing">
+                                    <div class="confirm">
+                                        <input type="checkbox" name="confirm" id="confirm" />
+                                        <label for="confirm">I Agree with all of your
+                                            <span style="
+                                                        color: rgb(0, 89, 255);
+                                                    ">Terms & Conditions</span></label>
+                                    </div>
+                                    <button type="submit">
+                                        Create Account →
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>
+                © 2025 - VIET NAM. Designed by Võ Đăng Thịnh. All rights
+                reserved
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>

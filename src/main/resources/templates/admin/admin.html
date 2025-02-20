@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Admin</title>
+    <link rel="stylesheet" th:href="@{/css/trainer.css}">
+</head>
+
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <div class="logo">
+            <img th:src="@{/images/LOGO.png}" alt="E-tutor Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a class="menu-item" id="student-menu" th:data-url="@{/admin/student/?page=0}" th:data-page="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="11" stroke="#FFFFFF" stroke-width="1.5"/>
+                        <path d="M4.61523 20.3075C9.09076 15.2658 15.3565 15.6235 19.3845 19.9458" stroke="#FFFFFF"
+                              stroke-width="1.5"/>
+                        <circle cx="11.9999" cy="11.9994" r="4.53846" stroke="#FFFFFF" stroke-width="1.5"/>
+                    </svg>
+
+                    Student</a></li>
+                <li><a class="menu-item" id="class-menu" th:data-url="@{/admin/class?page=0}" th:data-page="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="23" height="23" rx="4.5" stroke="#FFFFFF"
+                              stroke-width="1.5"/>
+                        <path
+                                d="M8.875 16.5C11.1187 16.5 12.9375 14.6812 12.9375 12.4375C12.9375 10.1938 11.1187 8.375 8.875 8.375C6.63134 8.375 4.8125 10.1938 4.8125 12.4375C4.8125 14.6812 6.63134 16.5 8.875 16.5Z"
+                                stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10"/>
+                        <path
+                                d="M14.1416 8.52628C14.7004 8.36885 15.2864 8.33299 15.8602 8.4211C16.434 8.50922 16.9822 8.71928 17.468 9.03713C17.9538 9.35497 18.3658 9.77323 18.6763 10.2637C18.9868 10.7542 19.1886 11.3055 19.2681 11.8806C19.3476 12.4557 19.303 13.0411 19.1372 13.5974C18.9714 14.1537 18.6883 14.6681 18.307 15.1058C17.9256 15.5435 17.4549 15.8944 16.9266 16.1349C16.3982 16.3754 15.8244 16.4999 15.2439 16.5"
+                                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                        <path
+                                d="M3.24976 19.4216C3.88424 18.5191 4.72655 17.7825 5.70558 17.274C6.68461 16.7655 7.77161 16.5 8.87482 16.5C9.97803 16.5 11.0651 16.7654 12.0441 17.2738C13.0232 17.7822 13.8656 18.5187 14.5001 19.4212"
+                                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                        <path
+                                d="M15.2439 16.5C16.3472 16.4992 17.4345 16.7643 18.4136 17.2728C19.3928 17.7813 20.235 18.5182 20.8689 19.4212"
+                                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                    </svg>
+
+                    Class</a></li>
+                <li><a class="menu-item" id="course-menu" th:data-url="@{/course/admin?page=0}" th:data-page="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 16.5L12 21.75L21 16.5" stroke="white" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 12L12 17.25L21 12" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M3 7.5L12 12.75L21 7.5L12 2.25L3 7.5Z" stroke="white" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Courses</a></li>
+                <li>
+                    <a class="menu-item" id="user-menu" th:data-url="@{/user}">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10"/>
+                            <path
+                                    d="M2.90527 20.2491C3.82736 18.6531 5.15322 17.3278 6.74966 16.4064C8.34611 15.485 10.1569 15 12.0002 15C13.8434 15 15.6542 15.4851 17.2506 16.4065C18.8471 17.3279 20.1729 18.6533 21.0949 20.2493"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                        </svg>
+                        Users
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sign-out">
+            <a th:href="@{/logout}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.3136 8.0625L20.2501 12L16.3136 15.9375" stroke="white" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.75 12H20.2472" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path
+                            d="M9.75 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V4.5C3.75 4.30109 3.82902 4.11032 3.96967 3.96967C4.11032 3.82902 4.30109 3.75 4.5 3.75H9.75"
+                            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sign-out</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="greeting">
+                <p th:text="'Hi ' + ${username}"></p>
+            </div>
+            <div class="right-controls">
+                <div class="user-info">
+                    <i class="fas fa-bell"></i>
+                    <img th:src="@{/images/avatar/dthinh.jpg}" alt="User Avatar">
+                </div>
+            </div>
+        </header>
+        <section class="content-area">
+            <div class="admin-home">
+                <img th:src="@{/images/Slider.jpg}" alt="">
+            </div>
+<!--            <div class="student-table-tile">-->
+<!--                <h1>List of Student</h1>-->
+<!--                <a id="addStdBtn">-->
+<!--                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                        <path-->
+<!--                                d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"-->
+<!--                                stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>-->
+<!--                        <path d="M8.25 12H15.75" stroke="white" stroke-width="1.5" stroke-linecap="round"-->
+<!--                              stroke-linejoin="round"/>-->
+<!--                        <path d="M12 8.25V15.75" stroke="white" stroke-width="1.5" stroke-linecap="round"-->
+<!--                              stroke-linejoin="round"/>-->
+<!--                    </svg>-->
+<!--                    Add Student</a>-->
+<!--            </div>-->
+<!--            <table>-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>No</th>-->
+<!--                    <th>First Name</th>-->
+<!--                    <th>Last Name</th>-->
+<!--                    <th>Gender</th>-->
+<!--                    <th>Date of birth</th>-->
+<!--                    <th>ID Card number</th>-->
+<!--                    <th>Email</th>-->
+<!--                    <th>Phone</th>-->
+<!--                    <th>Address</th>-->
+<!--                    <th>Class</th>-->
+<!--                    <th>Action</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:each="student, iterStat : ${students}" class="student-detail" id="student-detail" th:data-std-id="${student.id}">-->
+<!--                    <td th:text="${iterStat.index + 1}"></td>-->
+<!--                    <td th:text="${student.firstName}"></td>-->
+<!--                    <td th:text="${student.lastName}"></td>-->
+<!--                    <td th:text="${student.gender}"></td>-->
+<!--                    <td th:text="${student.dob}"></td>-->
+<!--                    <td th:text="${student.idCardNumber}"></td>-->
+<!--                    <td th:text="${student.email}"></td>-->
+<!--                    <td th:text="${student.phone}"></td>-->
+<!--                    <td th:text="${student.address}"></td>-->
+<!--                    <td th:text="${student.className}"></td>-->
+<!--                    <td style="width: 4%">-->
+<!--                        <a th:data-student-id="${student.id}" id="std-delete-btn">-->
+<!--                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">-->
+<!--                                <g id="_01_align_center" data-name="01 align center">-->
+<!--                                    <path-->
+<!--                                            d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z"-->
+<!--                                            fill="#E34444"/>-->
+<!--                                    <rect x="9" y="10" width="2" height="8" fill="#E34444"/>-->
+<!--                                    <rect x="13" y="10" width="2" height="8" fill="#E34444"/>-->
+<!--                                </g>-->
+<!--                            </svg>-->
+<!--                        </a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--            <div class="page">-->
+<!--                <th:block th:each="pageNumber : ${#numbers.sequence(0, numberOfPages - 1)}">-->
+<!--                    <a class="page-number" th:id="${pageNumber}" th:data-url="@{/admin/student/(page=${pageNumber})}"-->
+<!--                       th:text="${pageNumber + 1}" th:data-page="${pageNumber}"></a>-->
+<!--                </th:block>-->
+<!--            </div>-->
+        </section>
+        <footer>
+            <p>
+                © 2025 - VIET NAM. Designed by Võ Đăng Thịnh. All rights
+                reserved
+            </p>
+        </footer>
+    </main>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>

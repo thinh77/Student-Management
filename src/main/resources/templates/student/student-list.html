@@ -1,0 +1,60 @@
+<div class="student-table-tile">
+    <h1>List of Student</h1>
+    <a id="add-student-btn" th:data-url="@{/admin/student/create}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706
+            7.02944 21 12 21Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+            <path d="M8.25 12H15.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 8.25V15.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Add Student</a>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Date of birth</th>
+        <th>ID Card number</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Class</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student, iterStat : ${students}" class="row-detail">
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${iterStat.index + 1 + (page * 14)}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.firstName}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.lastName}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.gender}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.dob.toString()}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.idCardNumber}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.email}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.phone}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.address}"></td>
+        <td class="student-detail" th:data-std-id="${student.id}" th:data-page="${page}" th:text="${student.className}"></td>
+        <td style="width: 4%">
+            <a th:data-student-id="${student.id}" th:data-page="${page}" id="std-delete-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                    <g id="_01_align_center" data-name="01 align center">
+                        <path d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,
+                        3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z" fill="#E34444"/>
+                        <rect x="9" y="10" width="2" height="8" fill="#E34444"/>
+                        <rect x="13" y="10" width="2" height="8" fill="#E34444"/>
+                    </g>
+                </svg>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="page">
+    <th:block th:if="${numberOfPages > 0}" th:each="pageNumber : ${#numbers.sequence(0, numberOfPages - 1)}">
+        <a class="page-number" th:id="${pageNumber}" th:data-url="@{/admin/student/(page=${pageNumber})}"
+           th:text="${pageNumber + 1}" th:data-page="${pageNumber}"></a>
+    </th:block>
+</div>

@@ -1,0 +1,20 @@
+<div class="form-section">
+    <h3>Create Class</h3>
+    <form th:action="@{/admin/class/create}" th:object="${class}" method="post"
+          id="classForm">
+        <div class="address">
+            <label for="idCardNumber">Class name</label>
+            <input type="text" placeholder="Class name" th:field="*{className}" id="idCardNumber" required/>
+            <span class="error-message" th:if="${#fields.hasErrors('className')}" th:errors="*{className}"></span>
+        </div>
+        <div class="address">
+            <label for="address">Description</label>
+            <input th:field="*{description}" placeholder="Description" id="address" required/>
+            <span class="error-message" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        </div>
+        <div class="form-actions">
+            <a th:data-url="@{/admin/class}" class="cancel-btn">Cancel</a>
+            <button type="submit" class="save-next-btn" style="display: flex">Save</button>
+        </div>
+    </form>
+</div>

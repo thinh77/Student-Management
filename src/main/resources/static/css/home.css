@@ -1,0 +1,158 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.nav-bar {
+    width: 100%;
+    background: #1D2026;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    /* padding-left: 70px; */
+}
+
+.nav-bar > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-bar a:hover {
+    /* color: #FF6636; */
+    border-bottom: 2px solid #FF6636;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 5px 200px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.create-account {
+    margin-left: auto;
+    display: flex;
+}
+
+.create-account p {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #1D2026;
+}
+
+button {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.register {
+    padding: 16px 30px;
+    margin-left: auto;
+    background: #FFEEE8;
+    color: #FF6636;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register:hover {
+    background: #FFA386;
+    color: #FFFFFF;
+}
+
+.login {
+    padding: 16px 30px;
+    margin-left: 10px;
+    background: #FF6636;
+    color: #FFFFFF;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login:hover {
+    background: #993D20;
+    color: #FFFFFF;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-image: url("../images/Slider.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.col-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: white;
+    height: 100%;
+}
+
+.col-1 h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.col-1 p {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.col-1 a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    background: #1D2026;
+    color: white;
+    text-align: center;
+}

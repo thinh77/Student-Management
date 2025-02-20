@@ -1,0 +1,19 @@
+<div class="form-section">
+    <h3>Create Class</h3>
+    <form th:action="@{/admin/class/edit(page=${currentPage})}" th:object="${class}" method="post"
+          id="editClassForm" th:data-page="${currentPage}">
+        <input hidden th:field="*{id}">
+        <div class="address">
+            <label for="idCardNumber">Class name</label>
+            <input type="text" placeholder="Class name" th:field="*{className}" id="idCardNumber"/>
+        </div>
+        <div class="address">
+            <label for="address">Description</label>
+            <input th:field="*{description}" placeholder="Description" id="address"/>
+        </div>
+        <div class="form-actions">
+            <a th:data-url="@{/admin/class}" class="cancel-btn">Cancel</a>
+            <button type="submit" class="save-next-btn">Update</button>
+        </div>
+    </form>
+</div>

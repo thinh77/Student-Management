@@ -1,0 +1,51 @@
+<div class="student-table-tile">
+    <h1 th:text="'Add Student for ' + ${courseName}"></h1>
+</div>
+<div class="table-container" style="width: 100%">
+    <form th:action="@{/course/admin/add-student/{courseId}(courseId=${courseId})}" method="post">
+        <table th:fragment="course-table">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Date of birth</th>
+                <th>ID Card number</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Class</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student, iterStat : ${students}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.gender}"></td>
+                <td th:text="${student.dob}"></td>
+                <td th:text="${student.idCardNumber}"></td>
+                <td th:text="${student.email}"></td>
+                <td th:text="${student.phone}"></td>
+                <td th:text="${student.address}"></td>
+                <td th:text="${student.className}"></td>
+                <td style="width: 5%">
+                    <input type="checkbox" name="studentIds" th:value="${student.id}">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="form-actions">
+            <a th:data-url="@{/course/admin?page=0}" class="cancel-btn" th:data-page="${page}">Cancel</a>
+            <button type="submit" class="save-next-btn">Save</button>
+        </div>
+    </form>
+</div>
+<div class="page">
+    <th:block th:if="${numberOfPages > 0}" th:each="pageNumber : ${#numbers.sequence(0, numberOfPages - 1)}">
+        <a class="page-number" th:id="${pageNumber}" th:data-url="@{/course/admin/add-student/{courseId}(courseId=${courseId}, page=${pageNumber})}"
+           th:text="${pageNumber + 1}" th:data-page="${pageNumber}"></a>
+    </th:block>
+</div>

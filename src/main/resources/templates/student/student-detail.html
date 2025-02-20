@@ -1,0 +1,130 @@
+<div class="student-detail-container">
+    <form th:action="@{/admin/student/edit}" th:data-page="${page}" th:object="${student}" method="post" id="studentForm"
+          enctype="multipart/form-data">
+        <div class="image-upload">
+            <div class="upload-container">
+                <h3>Avatar</h3>
+                <div class="image-container">
+                    <img id="avatarPreview" th:src="@{${student.avatarUrl}}" alt="Default Avatar"
+                         onclick="showModalAvatar()">
+                    <div class="upload-overlay"
+                         onclick="document.getElementById('avatarInput').click()">
+                        <span class="upload-icon">⬆ Upload Photo</span>
+                    </div>
+                </div>
+                <p>Image size should be under 10MB and image ratio needs to be 1:1</p>
+                <input id="avatarInput" type="file" name="avatar" accept="image/*"
+                       style="display: none;" onchange="previewAvatar()">
+            </div>
+            <div class="degree">
+                <h3>Degree</h3>
+                <div class="image-container">
+                    <img id="degreePreview" th:src="@{${student.degreeUrl}}"
+                         alt="Degree Image" onclick="showModalDegree()">
+                    <div class="upload-overlay"
+                         onclick="document.getElementById('degreeInput').click()">
+                        <span class="upload-icon">⬆ Upload Photo</span>
+                    </div>
+                </div>
+                <p>Image size should be under 10MB and image ratio needs to be 16:9</p>
+                <input id="degreeInput" type="file" name="degree" accept="image/*"
+                       style="display: none;" onchange="previewAvatar()">
+            </div>
+        </div>
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="modal-close" onclick="closeModal()">×</span>
+            <img id="modalImage" src="" alt="Preview">
+        </div>
+        <div class="std-form-section">
+
+            <input hidden th:name="id" th:value="${student.id}">
+            <input hidden th:name="avatarUrl" th:value="${student.avatarUrl}">
+            <input hidden th:name="degreeUrl" th:value="${student.degreeUrl}">
+            <div class="form-group">
+                <label for="firstName">Full Name</label>
+                <div class="name">
+                    <div class="firstName">
+                        <input type="text" placeholder="First name" th:field="*{firstName}" id="firstName"
+                               required/>
+                        <span class="error-message" th:if="${#fields.hasErrors('firstName')}"
+                              th:errors="*{firstName}"></span>
+                    </div>
+                    <div class="lastName">
+                        <input type="text" placeholder="Last name" th:field="*{lastName}" id="lastName"
+                               required/>
+                        <span class="error-message" th:if="${#fields.hasErrors('lastName')}"
+                              th:errors="*{lastName}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="gender-dob">
+                <div class="gender">
+                    <label for="gender">Gender</label>
+                    <select th:field="*{gender}" id="gender" required>
+                        <option value="">
+                            Select Gender
+                        </option>
+                        <option value="Male">
+                            Male
+                        </option>
+                        <option value="Female">
+                            Female
+                        </option>
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+                </div>
+
+                <div class="dob">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" th:value="${student.dob.toString()}" th:field="*{dob}" id="dob" required/>
+                    <span class="error-message" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="idCardNumber">ID Card Number</label>
+                <input type="text" placeholder="ID card number" th:field="*{idCardNumber}"
+                       id="idCardNumber"/>
+                <span class="error-message" th:if="${#fields.hasErrors('idCardNumber')}"
+                      th:errors="*{idCardNumber}"></span>
+            </div>
+            <div class="contact">
+                <div class="email">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Email" th:field="*{email}" id="email" required/>
+                    <span class="error-message" th:if="${#fields.hasErrors('email')}"
+                          th:errors="*{email}"></span>
+                </div>
+
+                <div class="phone">
+                    <label for="phone">Phone</label>
+                    <input type="text" placeholder="Phone" th:field="*{phone}" id="phone" required/>
+                    <span class="error-message" th:if="${#fields.hasErrors('phone')}"
+                          th:errors="*{phone}"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" th:field="*{address}" placeholder="Address" id="address" required/>
+                <span class="error-message" th:if="${#fields.hasErrors('address')}"
+                      th:errors="*{address}"></span>
+            </div>
+            <div class="form-group">
+                <label for="className">Class Name</label>
+                <select th:field="*{className}" id="className">
+                    <option value="">
+                        Select Class
+                    </option>
+                    <option th:each="class : ${classes}" th:value="${class.className}"
+                            th:text="${class.className}"></option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button th:data-url="@{/admin/student/(page=${page})}" th:data-page="${page}" class="cancel-btn">Cancel</button>
+                <button type="submit" class="save-next-btn">Save change</button>
+            </div>
+            <input hidden th:name="page" th:value="${page}">
+        </div>
+    </form>
+</div>

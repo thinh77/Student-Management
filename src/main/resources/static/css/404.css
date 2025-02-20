@@ -1,0 +1,173 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.nav-bar {
+    width: 100%;
+    background: #1D2026;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.nav-bar>div {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.nav-bar div:hover {
+    border-bottom: 2px solid #FF6636;
+}
+
+.nav-bar>a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.nav-bar a:hover {
+    border-bottom: 2px solid #FF6636;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 200px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.logo .avt-wrapper {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo .avt-wrapper .avt-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 5px;
+}
+
+.logo .avt-wrapper .avt-name img {
+    width: 30%;
+    height: auto
+}
+
+.logo .avt-wrapper .avt-name p {
+    margin: 0;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 50px;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 200px;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+.error-message h1 {
+    margin: 0;
+    color: #E9EAF0;
+    text-align: left;
+    width: 100%;
+}
+
+.error-message h2 {
+    font-size: 30px;
+    text-align: left;
+    width: 100%;
+}
+
+.error-message p {
+    font-size: 20px;
+    color: #4E5566;
+    margin: 0;
+    font-weight: 100;
+    text-align: left;
+    width: 100%;
+}
+
+.error-img {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.error-img img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    /* top: 50%; Đẩy ảnh xuống giữa */
+    /* left: 62%; Đẩy ảnh sang giữa */
+    transform: translateY(-50%); /* Căn chỉnh tâm ảnh với container */
+    height: auto;
+    width: 80%;
+}
+
+
+
+footer {
+    background: #1D2026;
+    color: white;
+    text-align: center;
+}

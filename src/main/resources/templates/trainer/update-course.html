@@ -1,0 +1,47 @@
+<div class="form-section">
+    <h3>Update Course</h3>
+    <form th:action="@{/course/admin/update}" th:object="${course}" method="post" id="courseForm">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="address">
+            <label for="name">Course Name:</label>
+            <input type="text" placeholder="Course name" th:field="*{name}" id="name" required/>
+        </div>
+        <div class="address">
+            <label for="code">Course Code:</label>
+            <input type="text" placeholder="Course code" th:field="*{code}" id="code" required/>
+        </div>
+        <div class="address">
+            <label for="des">Description:</label>
+            <input type="text" th:field="*{description}" id="des" required/>
+        </div>
+        <div class="dob" style="width: 100%">
+            <label for="sd">Start Date:</label>
+            <input type="date" th:field="*{startDate}" id="sd" required/>
+            <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" style="color: red;"></span>
+        </div>
+        <div class="dob" style="width: 100%">
+            <label for="ed">End Date:</label>
+            <input type="date" th:field="*{endDate}" id="ed" required/>
+        </div>
+        <div class="class-name">
+            <label for="className">Class Name:</label>
+            <select th:field="*{className}" id="className">
+                <option value="">Select Class</option>
+                <option th:each="class : ${classes}" th:value="${class.className}"
+                        th:text="${class.className}"></option>
+            </select>
+        </div>
+        <div class="class-name">
+            <label for="trainerName">Trainer:</label>
+            <select th:field="*{trainerName}" id="trainerName">
+                <option value="">Select Trainer</option>
+                <option th:each="trainer : ${account}" th:value="${trainer.username}"
+                        th:text="${trainer.username}"></option>
+            </select>
+        </div>
+        <div class="form-actions">
+            <a th:data-url="@{/course/admin}" class="cancel-btn">Cancel</a>
+            <button type="submit" class="save-next-btn">Update</button>
+        </div>
+    </form>
+</div>

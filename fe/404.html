@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Admin</title>
+    <link rel="stylesheet" th:href="@{/css/404.css}" />
+    <!-- <link rel="stylesheet" href="../src/main/resources/static/css/404.css" /> -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="nav-bar">
+                <a href="/admin">Home</a>
+                <div id="student-menu" data-url="/admin/student/">Student</div>
+                <div>Class</div>
+                <div>Course</div>
+                <a th:href="@{/logout}">Logout</a>
+            </div>
+        </header>
+        <main>
+            <div class="logo">
+                <div>
+                    <img th:src="@{/images/LOGO.jpg}" alt="Logo" />
+                </div>
+                <div class="avt-wrapper">
+                    <div class="avt-name">
+                        <img th:src="@{/images/avatar/{username}.jpg(username=${username})}" alt="Avatar" />
+                        <p th:text="${username} + ' - ' + ${role}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="error-message">
+                    <h1>Error 404</h1>
+                    <h2>Oops! page not found</h2>
+                    <p>Something went wrong. It’s look that your requested could not be found. It's look like the link is broken or the page is removed.</p>
+                </div>
+                <div class="error-img">
+                    <img
+                            th:src="@{/images/404.png}"
+                            alt="404"
+                    />
+                    <!-- <img src="/src/main/resources/static/images/404.jpg" alt=""> -->
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>
+                © 2025 - VIET NAM. Designed by Võ Đăng Thịnh. All rights
+                reserved
+            </p>
+        </footer>
+        <script th:src="@{/js/script.js}"></script>
+    </div>
+</body>
+
+</html>

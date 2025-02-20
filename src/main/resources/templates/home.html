@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="nav-bar">
+          <a href="/">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </header>
+      <main>
+        <div class="logo">
+          <div>
+            <img
+                    th:src="@{/images/LOGO.jpg}"
+                    alt=""
+            />
+          </div>
+          <a class="register" th:href="@{/register}">Create Account</a>
+          <a class="login" th:href="@{/login}">Sign In</a>
+        </div>
+        <div class="content">
+          <div class="col-1">
+            <div>
+              <h1>Learn with expert anytime anywhere</h1>
+            </div>
+            <div>
+              <p>
+                Our mission is to help people to find the best course online and
+                learn with expert anytime, anywhere.
+              </p>
+            </div>
+            <a class="register" th:href="@{/register}">Create Account</a>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>© 2025 - VIET NAM. Designed by Võ Đăng Thịnh. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

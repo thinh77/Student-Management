@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Course</title>
+    <link rel="stylesheet" th:href="@{/css/new_admin.css}" />
+    <link rel="stylesheet" href="/src/main/resources/static/css/new_admin.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="nav-bar">
+                <a href="/admin">Home</a>
+                <div id="student-menu" data-url="/admin/student/">
+                    Student
+                </div>
+                <div>Class</div>
+                <div>Course</div>
+                <div th:href="@{/logout}">Logout</div>
+            </div>
+        </header>
+        <main>
+            <div class="logo">
+                <div>
+                    <img th:src="@{/images/LOGO.jpg}" alt="Logo" />
+                </div>
+                <div class="avt-wrapper">
+                    <div class="avt-name">
+                        <img th:src="@{/images/avt.png}" alt="Avatar" />
+                        <p th:text="${username}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="col-1" id="main-content">
+                    <div class="std-content">
+                        <div class="std-form-title">
+                            <h1>Update Student</h1>
+                        </div>
+                        <div class="std-form">
+                            <form th:action="@{/admin/student/edit}" th:object="${student}" method="post"
+                                id="studentForm">
+                                <div class="full-name">
+                                    <label for="firstName">Full Name</label>
+                                    <div class="name">
+                                        <input type="text" placeholder="First name" th:field="*{firstName}"
+                                            id="firstName" required />
+                                        <input type="text" placeholder="Last name" th:field="*{lastName}" id="lastName"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="std-gender-dob">
+                                    <div class="gender">
+                                        <label for="gender">Gender</label>
+                                        <select th:field="*{gender}" id="gender" required>
+                                            <option value="">
+                                                Select Gender
+                                            </option>
+                                            <option value="Male">
+                                                Male
+                                            </option>
+                                            <option value="Female">
+                                                Female
+                                            </option>
+                                            <option value="Other">
+                                                Other
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dob">
+                                        <label for="dob">DoB</label>
+                                        <input type="date" th:field="*{dob}" id="dob" required />
+                                    </div>
+                                </div>
+
+                                <div class="id-card">
+                                    <div class="id-card-number">
+                                        <label for="idCardNumber">ID Card Number</label>
+                                        <input type="text" placeholder="ID card number" th:field="*{idCardNumber}" id="idCardNumber" />
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <div class="email">
+                                        <label for="email">Email</label>
+                                        <input type="email" placeholder="Email" th:field="*{email}" id="email" required />
+                                    </div>
+
+                                    <div class="phone">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" placeholder="Phone" th:field="*{phone}" id="phone" />
+                                    </div>
+                                </div>
+                                <div class="address">
+                                    <label for="address">Address</label>
+                                    <input th:field="*{address}" placeholder="Address" id="address" />
+                                </div>
+                                <!-- <div class="degree">
+                                    <label for="degreeUrl">Degree URL</label>
+                                    <input type="file" accept="image/*" th:field="*{degreeUrl}" id="degreeUrl" />
+                                </div> -->
+                                <div class="class-name">
+                                    <label for="className">Class Name</label>
+                                    <select th:field="*{className}" id="className">
+                                        <option value="">
+                                            Select Class
+                                        </option>
+                                        <option th:each="class : ${classes}" th:value="${class.className}"
+                                            th:text="${class.className}"></option>
+                                    </select>
+                                </div>
+                                <div class="std-action">
+                                    <button type="submit">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>
+                © 2025 - VIET NAM. Designed by Võ Đăng Thịnh. All rights
+                reserved
+            </p>
+        </footer>
+        <script th:src="@{/js/script.js}"></script>
+    </div>
+</body>
+
+</html>
+
+<!--<script th:src="@{/js/script.js}"></script>-->

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Admin</title>
+    <link rel="stylesheet" href="student-detail.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img th:src="@{/images/LOGO.png}" alt="E-tutor Logo">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a class="menu-item" id="student-menu" th:data-url="@{/admin/student}">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="11" stroke="#FFFFFF" stroke-width="1.5" />
+                                <path d="M4.61523 20.3075C9.09076 15.2658 15.3565 15.6235 19.3845 19.9458"
+                                    stroke="#FFFFFF" stroke-width="1.5" />
+                                <circle cx="11.9999" cy="11.9994" r="4.53846" stroke="#FFFFFF" stroke-width="1.5" />
+                            </svg>
+
+                            Student</a></li>
+                    <li><a class="menu-item" id="class-menu" th:data-url="@{/admin/class}">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="23" height="23" rx="4.5" stroke="#FFFFFF"
+                                    stroke-width="1.5" />
+                                <path
+                                    d="M8.875 16.5C11.1187 16.5 12.9375 14.6812 12.9375 12.4375C12.9375 10.1938 11.1187 8.375 8.875 8.375C6.63134 8.375 4.8125 10.1938 4.8125 12.4375C4.8125 14.6812 6.63134 16.5 8.875 16.5Z"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path
+                                    d="M14.1416 8.52628C14.7004 8.36885 15.2864 8.33299 15.8602 8.4211C16.434 8.50922 16.9822 8.71928 17.468 9.03713C17.9538 9.35497 18.3658 9.77323 18.6763 10.2637C18.9868 10.7542 19.1886 11.3055 19.2681 11.8806C19.3476 12.4557 19.303 13.0411 19.1372 13.5974C18.9714 14.1537 18.6883 14.6681 18.307 15.1058C17.9256 15.5435 17.4549 15.8944 16.9266 16.1349C16.3982 16.3754 15.8244 16.4999 15.2439 16.5"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M3.24976 19.4216C3.88424 18.5191 4.72655 17.7825 5.70558 17.274C6.68461 16.7655 7.77161 16.5 8.87482 16.5C9.97803 16.5 11.0651 16.7654 12.0441 17.2738C13.0232 17.7822 13.8656 18.5187 14.5001 19.4212"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M15.2439 16.5C16.3472 16.4992 17.4345 16.7643 18.4136 17.2728C19.3928 17.7813 20.235 18.5182 20.8689 19.4212"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+
+                            Class</a></li>
+                    <li><a class="menu-item" id="course-menu" th:data-url="@{/course/admin}">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 16.5L12 21.75L21 16.5" stroke="white" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12L12 17.25L21 12" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M3 7.5L12 12.75L21 7.5L12 2.25L3 7.5Z" stroke="white" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Courses</a></li>
+                    <li>
+                        <a class="menu-item" id="user-menu" th:data-url="@{/user}">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path
+                                    d="M2.90527 20.2491C3.82736 18.6531 5.15322 17.3278 6.74966 16.4064C8.34611 15.485 10.1569 15 12.0002 15C13.8434 15 15.6542 15.4851 17.2506 16.4065C18.8471 17.3279 20.1729 18.6533 21.0949 20.2493"
+                                    stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            Users
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sign-out">
+                <a th:href="@{/logout}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.3136 8.0625L20.2501 12L16.3136 15.9375" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M9.75 12H20.2472" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M9.75 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V4.5C3.75 4.30109 3.82902 4.11032 3.96967 3.96967C4.11032 3.82902 4.30109 3.75 4.5 3.75H9.75"
+                            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Sign-out</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="greeting">
+                    <p th:text="'Hi ' + ${username}"></p>
+                </div>
+                <div class="right-controls">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="user-info">
+                        <i class="fas fa-bell"></i>
+                        <img th:src="@{/images/avatar/dthinh.jpg}" alt="User Avatar">
+                    </div>
+                </div>
+            </header>
+            <section class="content-area">
+                <div class="student-detail-container">
+                    <form th:action="@{/admin/student/edit}" th:object="${student}" method="post" id="studentForm"
+                        enctype="multipart/form-data">
+                        <div class="image-upload">
+                            <div class="upload-container">
+                                <h3>Avatar</h3>
+                                <div class="image-container">
+                                    <img id="avatarPreview" th:src="@{/images/avt.png}" alt="Default Avatar"
+                                        onclick="showModal()">
+                                    <div class="upload-overlay"
+                                        onclick="document.getElementById('avatarInput').click()">
+                                        <span class="upload-icon">⬆ Upload Photo</span>
+                                    </div>
+                                </div>
+                                <p>Image size should be under 1MB and image ratio needs to be 1:1</p>
+                                <input id="avatarInput" type="file" name="avatar" accept="image/*"
+                                    style="display: none;" onchange="previewAvatar()">
+                                <!-- Thêm thuộc tính name="avatar" cho input avatar -->
+                            </div>
+                            <div class="degree">
+                                <h3>Degree</h3>
+                                <div class="image-container">
+                                    <img id="degreePreview" src="../src/main/resources/static/images/avt.png"
+                                        alt="Default Avatar">
+                                    <div class="upload-overlay"
+                                        onclick="document.getElementById('degreeInput').click()">
+                                        <span class="upload-icon">⬆ Upload Photo</span>
+                                    </div>
+                                </div>
+                                <p>Image size should be under 1MB and image ratio needs to be 1:1</p>
+                                <input id="degreeInput" type="file" name="degree" accept="image/*"
+                                    style="display: none;" onchange="previewAvatar()">
+                                <!-- Thêm thuộc tính name="degree" cho input degree -->
+                            </div>
+                        </div>
+                        <div id="imageModal" class="modal" onclick="closeModal()">
+                            <span class="modal-close" onclick="closeModal()">×</span>
+                            <img id="modalImage" src="" alt="Preview">
+                        </div>
+                        <div class="std-form-section">
+                            <input hidden th:name="id" th:value="${student.id}">
+                            <div class="form-group">
+                                <label for="firstName">Full Name</label>
+                                <div class="name">
+                                    <div class="firstName">
+                                        <input type="text" placeholder="First name" th:field="*{firstName}"
+                                            id="firstName" required />
+                                        <span class="error-message" th:if="${#fields.hasErrors('idCardNumber')}"
+                                            th:errors="*{idCardNumber}">First name must be alphabets and less than 50 characters</span>
+                                    </div>
+                                    <input type="text" placeholder="Last name" th:field="*{lastName}" id="lastName"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="gender-dob">
+                                <div class="gender">
+                                    <label for="gender">Gender</label>
+                                    <select th:field="*{gender}" id="gender" required>
+                                        <option value="">
+                                            Select Gender
+                                        </option>
+                                        <option value="Male">
+                                            Male
+                                        </option>
+                                        <option value="Female">
+                                            Female
+                                        </option>
+                                        <option value="Other">
+                                            Other
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="dob">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" th:field="*{dob}" id="dob" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="idCardNumber">ID Card Number</label>
+                                <input type="text" placeholder="ID card number" th:field="*{idCardNumber}"
+                                    id="idCardNumber" />
+                            </div>
+                            <div class="contact">
+                                <div class="email">
+                                    <label for="email">Email</label>
+                                    <input type="email" placeholder="Email" th:field="*{email}" id="email" required />
+                                </div>
+
+                                <div class="phone">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" placeholder="Phone" th:field="*{phone}" id="phone" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" th:field="*{address}" placeholder="Address" id="address" />
+                            </div>
+                            <div class="form-group">
+                                <label for="className">Class Name</label>
+                                <select th:field="*{className}" id="className">
+                                    <option value="">
+                                        Select Class
+                                    </option>
+                                    <option th:each="class : ${classes}" th:value="${class.className}"
+                                        th:text="${class.className}"></option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button th:data-url="@{/admin/student}" class="cancel-btn">Cancel</button>
+                                <button type="submit" class="save-next-btn">Save change</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <footer>
+                <p>
+                    © 2025 - VIET NAM. Designed by Võ Đăng Thịnh. All rights
+                    reserved
+                </p>
+            </footer>
+        </main>
+    </div>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>
